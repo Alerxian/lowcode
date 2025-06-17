@@ -21,6 +21,7 @@
     "**/*.md",
     "eslint.config.js",
     ".gitignore",
-    ".devcontainer/**"
+    ".devcontainer/**",
+    "packages/shadcn/src/components/ui/*"
   ]
 }

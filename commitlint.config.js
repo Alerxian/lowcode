@@ -36,7 +36,7 @@ export default defineConfig({
     },
     types: [
       { value: 'feat', name: 'feat:     ✨ 新增功能 | A new feature', emoji: ':sparkles:' },
-      { value: 'fix', name: 'fix:      🐛 修复缺陷 |  A bug fix', emoji: ':bug:' },
+      { value: 'fix', name: 'fix:      🐛 修复缺陷 | A bug fix', emoji: ':bug:' },
       {
         value: 'docs',
         name: 'docs:     📝 文档更新 | Documentation only changes',
@@ -64,7 +64,7 @@ export default defineConfig({
       },
       {
         value: 'build',
-        name: 'build:    📦️  构建相关 | Changes that affect the build system or external dependencies',
+        name: 'build:    📦️ 构建相关 | Changes that affect the build system or external dependencies',
         emoji: ':package:',
       },
       {
