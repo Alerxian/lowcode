@@ -1,13 +1,9 @@
-import { Button } from '@lowcode/shadcn/components/ui/button'
+import { RouterProvider } from 'react-router-dom'
+
+import router from './router'
 
 function App() {
-  return (
-    <div className="container m-auto mt-10 h-full">
-      <Button variant={'destructive'} size={'lg'} className="hover:bg-secondary/80">
-        test
-      </Button>
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

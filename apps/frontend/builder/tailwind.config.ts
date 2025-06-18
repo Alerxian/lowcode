@@ -1,7 +1,17 @@
-export default {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    '../../../packages/shadcn/**/*.{js,ts,jsx,tsx}', // 子包路径
-    // '../../apps/**/*.{js,ts,jsx,tsx}', // 其他子包路径
+// tailwind config is required for editor support
+import sharedConfig from '@lowcode/shadcn/tailwind.config'
+import type { Config } from 'tailwindcss'
+
+const config: Pick<Config, 'presets'> = {
+  presets: [
+    {
+      ...sharedConfig,
+      content: [
+        './src/**/*.{js,ts,jsx,tsx}',
+        '../../../packages/shadcn/src/**/*{.js,.ts,.jsx,.tsx}',
+      ],
+    },
   ],
 }
+
+export default config
