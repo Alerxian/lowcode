@@ -180,6 +180,12 @@ importers:
       tailwindcss:
         specifier: 3.4.14
         version: 3.4.14(ts-node@10.9.2(@swc/core@1.12.0)(@types/node@22.15.32)(typescript@5.8.3))
+      zod:
+        specifier: 3.25.67
+        version: 3.25.67
+      zustand:
+        specifier: 5.0.5
+        version: 5.0.5(@types/react@18.3.12)(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1))
     devDependencies:
       '@types/react':
         specifier: ^18
@@ -5631,6 +5637,27 @@ packages:
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+  zod@3.25.67:
+    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
+
+  zustand@5.0.5:
+    resolution: {integrity: sha512-mILtRfKW9xM47hqxGIxCv12gXusoY/xTSHBYApXozR0HmQv299whhBeeAcRy+KrPPybzosvJBCOmVjq6x12fCg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
 
 snapshots:
 
@@ -11345,3 +11372,11 @@ snapshots:
   yoctocolors-cjs@2.1.2: {}
 
   zod@3.23.8: {}
+
+  zod@3.25.67: {}
+
+  zustand@5.0.5(@types/react@18.3.12)(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1)):
+    optionalDependencies:
+      '@types/react': 18.3.12
+      react: 18.3.1
+      use-sync-external-store: 1.5.0(react@18.3.1)

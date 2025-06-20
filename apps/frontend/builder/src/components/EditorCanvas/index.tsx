@@ -1,6 +1,22 @@
 import { Sun } from 'lucide-react'
 
+import { ContainerProvider } from '@/context/useContainer'
+import { type BlockTreeNode, useBlockStore } from '@/stores/useBlockStore'
+
+import { BlockRender } from './BlockRender'
+
 const EditorCanvas = () => {
+  const blockTree = useBlockStore(state => state.blockTree)
+
+  const renderLayout = (blockTree: BlockTreeNode[]) => {
+    return (
+      <ContainerProvider containerId="root">
+        {blockTree.map((node, index) => (
+          <BlockRender key={node.id} node={node} index={index} />
+        ))}
+      </ContainerProvider>
+    )
+  }
   return (
     <div className="flex-1 bg-zinc-100">
       <div
@@ -19,7 +35,7 @@ const EditorCanvas = () => {
         </div>
         <div className="page-content w-full h-full overflow-y-auto">
           <div className="flex flex-col w-full page-content-inner max-w-[1024px] m-auto">
-            {/* {renderLayout(blockTree)} */}
+            {renderLayout(blockTree)}
           </div>
         </div>
         <div className="flex items-center absolute bottom-4 right-4 px-2 py-1 text-xs rounded-md bg-primary text-primary-foreground">
