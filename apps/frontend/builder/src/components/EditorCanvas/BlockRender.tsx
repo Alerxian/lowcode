@@ -1,9 +1,12 @@
 import { useMemo } from 'react'
 
 import { ButtonBlock } from '@/blocks/ButtonBlock'
+import { ContainerBlock } from '@/blocks/ContainerBlock'
+import { DividerBlock } from '@/blocks/DividerBlock'
+import { IconBlock } from '@/blocks/IconBlock'
 import { ImageBlock } from '@/blocks/ImageBlock'
 import { TextBlock } from '@/blocks/TextBlock'
-import { useContainer } from '@/context/useContainer'
+import { ContainerProvider, useContainer } from '@/context/useContainer'
 import type { RectSize, RectSizeUnit } from '@/protocols/layout'
 import { type BlockTreeNode, useBlockStore } from '@/stores/useBlockStore'
 
@@ -45,6 +48,15 @@ const BlockRender = ({ node, index }: { node: BlockTreeNode; index: number }) =>
     case 'button':
       block = <ButtonBlock data={data} />
       break
+    case 'container':
+      block = <ContainerBlock data={data} nodes={node.children} />
+      break
+    case 'icon':
+      block = <IconBlock data={data} />
+      break
+    case 'divider':
+      block = <DividerBlock data={data} />
+      break
     default:
       break
   }
@@ -60,6 +72,29 @@ const BlockRender = ({ node, index }: { node: BlockTreeNode; index: number }) =>
       height: withUnitHeight,
     }
   }, [data])
+
+  if (data.type === 'container') {
+    return (
+      <ContainerProvider containerId={data.id}>
+        <div style={styles} className="relative">
+          <div
+            className="w-full h-full"
+            onClick={e => {
+              e.stopPropagation()
+              setActiveBlock(node.id)
+            }}
+            data-node-index={index}
+            data-direction={data.props?.layout?.flexDirection}
+            data-container={containerId}
+            data-node-count={node.children?.length}
+          >
+            {block}
+          </div>
+          {activeBlockId === node.id && <BlockOutline />}
+        </div>
+      </ContainerProvider>
+    )
+  }
 
   return (
     <div style={styles} className="relative">

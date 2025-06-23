@@ -28,7 +28,7 @@ export interface LayoutProtocol {
   flexDirection?: 'row' | 'column'
   justifyContent?: React.CSSProperties['justifyContent']
   alignItems?: React.CSSProperties['alignItems']
-  isDisturbedAlignment?: boolean
+  isDistributedAlignment?: boolean
   gap?: number
   padding?: [number, number, number, number]
 }

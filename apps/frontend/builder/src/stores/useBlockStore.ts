@@ -3,7 +3,7 @@ import { create } from 'zustand'
 import { generateDefaultBlockData } from '@/constants/defaultBlockData'
 import type { BlockProtocol, BlockType } from '@/protocols/block'
 
-export type BlockTreeNode = Pick<BlockProtocol, 'id' | 'type'> & { children: BlockTreeNode[] }
+export type BlockTreeNode = Pick<BlockProtocol, 'id' | 'type'> & { children?: BlockTreeNode[] }
 
 interface BlockStore {
   blockTree: BlockTreeNode[]

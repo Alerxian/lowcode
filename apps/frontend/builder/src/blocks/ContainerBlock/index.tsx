@@ -1,0 +1,62 @@
+import React from 'react'
+
+import { BlockRender } from '@/components/EditorCanvas/BlockRender'
+import { ContainerProvider } from '@/context/useContainer'
+import { Container } from '@/icons/blocks/container'
+import { type ContainerBlockProtocol } from '@/protocols/block'
+import { type BlockTreeNode, useBlockStore } from '@/stores/useBlockStore'
+
+export interface ContainerBlockProps {
+  data: ContainerBlockProtocol
+  nodes?: BlockTreeNode[]
+  children?: React.ReactNode
+}
+
+export function ContainerBlock(props: ContainerBlockProps) {
+  const { nodes, data } = props
+  const blockProps = useBlockStore(state => (state.blocks[data.id] as ContainerBlockProtocol).props)
+
+  // 是否分布对齐
+  const { isDistributedAlignment } = blockProps.layout
+
+  const isRow = blockProps.layout.flexDirection === 'row'
+
+  const alignX = isRow ? 'justifyContent' : 'alignItems'
+  const alignY = isRow ? 'alignItems' : 'justifyContent'
+
+  const styles: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: blockProps.layout.flexDirection || 'row',
+    [alignX]:
+      isRow && isDistributedAlignment
+        ? 'space-between'
+        : blockProps.layout.justifyContent || 'flex-start',
+    [alignY]:
+      !isRow && isDistributedAlignment
+        ? 'space-between'
+        : blockProps.layout.alignItems || 'flex-start',
+    gap: blockProps.layout.gap + 'px',
+    flexShrink: 0,
+  }
+
+  return (
+    <div className="w-full h-full" style={styles}>
+      <ContainerProvider containerId={data.id}>
+        {!nodes?.length && (
+          <div
+            className="container-placeholder w-full h-full flex flex-col gap-2 items-center justify-center text-sm text-zinc-500"
+            data-container={data.id}
+          >
+            <div className="size-9">
+              <Container />
+            </div>
+            暂无内容
+          </div>
+        )}
+        {nodes?.map((child, index) => {
+          return <BlockRender key={index} node={child} index={index} />
+        })}
+      </ContainerProvider>
+    </div>
+  )
+}
