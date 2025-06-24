@@ -1,0 +1,22 @@
+{
+  "name": "@lowcode/layout-engine",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch"
+  },
+  "dependencies": {
+    "interactjs": "1.10.27"
+  },
+  "devDependencies": {
+    "tsup": "8.5.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,3 +1,4 @@
 Avenir
+interactjs
 lowcode
 shadcn

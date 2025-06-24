@@ -1,6 +1,6 @@
 export const init = () => {
   let isDragging = false
-  let dragId: string = ''
+  // let dragId: string = ''
   let currentOverlay: HTMLDivElement | null = null
 
   let start: { x: number; y: number; left: number; top: number } | null = null
@@ -11,9 +11,9 @@ export const init = () => {
     document.body.style.cursor = 'grabbing'
     document.body.style.userSelect = 'none' // 禁用文本选中
     isDragging = true
-    const node = e.target as HTMLDivElement
+    const node = e.currentTarget as HTMLDivElement
     if (!node) return
-    dragId = node.getAttribute('data-node')!
+    // dragId = node.getAttribute('data-node')!
 
     const nodeRect = node.getBoundingClientRect()
     start = {
@@ -34,7 +34,6 @@ export const init = () => {
 
     document.body.appendChild(cloneNode)
     currentOverlay = cloneNode
-    console.log(dragId)
   }
 
   const mouseMoveHandler = (e: MouseEvent) => {
@@ -51,7 +50,7 @@ export const init = () => {
   // document.body.addEventListener('mousedown', mouseDownHandler)
   const nodes = document.querySelectorAll('[data-node]')
   nodes.forEach(node => {
-    ;(node as HTMLDivElement).addEventListener('mousedown', mouseDownHandler, false)
+    ;(node as HTMLDivElement).addEventListener('mousedown', mouseDownHandler)
   })
   document.body.addEventListener('mousemove', mouseMoveHandler)
   document.body.addEventListener('mouseup', mouseUpHandler)

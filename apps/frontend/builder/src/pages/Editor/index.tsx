@@ -1,10 +1,10 @@
+import { init } from '@lowcode/layout-engine'
 import { useEffect, useLayoutEffect } from 'react'
 
 import { EditorCanvas } from '@/components/EditorCanvas'
 import { EditorLeftPanel } from '@/components/EditorLeftPanel'
 import { EditorNavigator } from '@/components/EditorNavigator'
 import { EditorSettingPanel } from '@/components/EditorSettingPanel'
-import { init } from '@/layout-engine'
 import type { BlockProtocol } from '@/protocols/block'
 import { type BlockTreeNode, useBlockStore } from '@/stores/useBlockStore'
 
