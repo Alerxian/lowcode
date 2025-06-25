@@ -55,7 +55,7 @@ export default tseslint.config(
       'commitlint.config.js',
       'test',
       '**/*.spec.ts',
-      '**/*.cjs',
+      'packages/layout-engine/dist',
     ],
   },
   frontendConfig,

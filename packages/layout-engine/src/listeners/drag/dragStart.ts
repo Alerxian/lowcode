@@ -1,4 +1,4 @@
-import { generateAreas, nodeAreas } from '@/core/generateAreas'
+import { generateAreas } from '@/core/generateAreas'
 
 export const startOfOffset = {
   x: 0,
@@ -29,7 +29,6 @@ export const dragStart = (event: Interact.InteractEvent) => {
 
   // 创建碰撞区域
   generateAreas()
-  console.log(nodeAreas)
 
   // 设置拖拽元素样式
   const overlayDom = document.createElement('div')

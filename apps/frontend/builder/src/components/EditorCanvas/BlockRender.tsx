@@ -23,9 +23,6 @@ const getWithUnit = (value: RectSize, unit?: RectSizeUnit) => {
   return value
 }
 const BlockOutline = () => {
-  // return (
-  //     <div className="absolute pointer-events-none w-[calc(100%+4px)] h-[calc(100%+4px)] rounded-sm top-[-2px] left-[-2px] right-0 bottom-0 border outline outline-purple-300" />
-  // )
   return (
     <div className="absolute pointer-events-none w-full h-full top-0 left-0 right-0 bottom-0 outline outline-purple-300" />
   )
@@ -81,8 +78,9 @@ const BlockRender = ({ node, index }: { node: BlockTreeNode; index: number }) =>
             className="w-full h-full"
             onClick={e => {
               e.stopPropagation()
-              setActiveBlock(node.id)
+              setActiveBlock(data.id)
             }}
+            data-node={data.id}
             data-node-index={index}
             data-direction={data.props?.layout?.flexDirection}
             data-container={containerId}
@@ -90,7 +88,7 @@ const BlockRender = ({ node, index }: { node: BlockTreeNode; index: number }) =>
           >
             {block}
           </div>
-          {activeBlockId === node.id && <BlockOutline />}
+          {activeBlockId === data.id && <BlockOutline />}
         </div>
       </ContainerProvider>
     )
@@ -102,14 +100,14 @@ const BlockRender = ({ node, index }: { node: BlockTreeNode; index: number }) =>
         className="w-full h-full"
         onClick={e => {
           e.stopPropagation()
-          setActiveBlock(node.id)
+          setActiveBlock(data.id)
         }}
         data-node-index={index}
-        data-node={node.id}
+        data-node={data.id}
         data-container={containerId}
       >
         {block}
-        {activeBlockId === node.id && <BlockOutline />}
+        {activeBlockId === data.id && <BlockOutline />}
       </div>
     </div>
   )

@@ -1,12 +1,58 @@
+import { init } from '@lowcode/layout-engine'
 import { Sun } from 'lucide-react'
+import { useLayoutEffect } from 'react'
 
 import { ContainerProvider } from '@/context/useContainer'
+import { BlockType } from '@/protocols/block'
 import { type BlockTreeNode, useBlockStore } from '@/stores/useBlockStore'
 
 import { BlockRender } from './BlockRender'
 
 const EditorCanvas = () => {
   const blockTree = useBlockStore(state => state.blockTree)
+  const insertBlock = useBlockStore(state => state.insertBlock)
+  const moveBlock = useBlockStore(state => state.moveBlock)
+
+  useLayoutEffect(() => {
+    init({
+      onInsert(dragId, payload) {
+        const [dragType = '', type = ''] = dragId.split('-')
+        console.log(type, dragType, payload)
+        if (dragType === 'insert') {
+          insertBlock({
+            type: type as BlockType,
+            parentId: payload.parentId,
+            relativeBlockId: payload.nodeId,
+            position: payload.position,
+          })
+          return
+        }
+        moveBlock({
+          dragId: dragId,
+          parentId: payload.parentId,
+          relativeBlockId: payload.nodeId,
+          position: payload.position,
+        })
+      },
+      onDrop(dragId, insertPayload) {
+        if (!insertPayload) {
+          return
+        }
+        const [dragType = '', type = ''] = dragId.split('-')
+        if (dragType === 'insert') {
+          insertBlock({
+            type: type as BlockType,
+            parentId: insertPayload.parentId,
+          })
+          return
+        }
+        moveBlock({
+          dragId: dragId,
+          parentId: insertPayload.parentId,
+        })
+      },
+    })
+  }, [])
 
   const renderLayout = (blockTree: BlockTreeNode[]) => {
     return (
@@ -17,6 +63,7 @@ const EditorCanvas = () => {
       </ContainerProvider>
     )
   }
+
   return (
     <div className="flex-1 bg-zinc-100">
       <div
@@ -34,7 +81,7 @@ const EditorCanvas = () => {
           </div>
         </div>
         <div className="page-content w-full h-full overflow-y-auto">
-          <div className="flex flex-col w-full page-content-inner max-w-[1024px] m-auto">
+          <div className="flex flex-col w-full h-full page-content-inner max-w-[1024px] m-auto">
             {renderLayout(blockTree)}
           </div>
         </div>

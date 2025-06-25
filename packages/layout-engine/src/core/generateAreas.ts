@@ -2,7 +2,7 @@ import { AREA_OFFSET, AREA_SIZE } from '@/constants'
 import { dragItem } from '@/listeners/drag/dragStart'
 
 export const INSERT_POSITIONS = ['left', 'right', 'top', 'bottom'] as const
-type InsertPosition = (typeof INSERT_POSITIONS)[number]
+export type InsertPositions = (typeof INSERT_POSITIONS)[number]
 
 export interface Rect {
   left: number
@@ -11,12 +11,12 @@ export interface Rect {
   bottom: number
 }
 
-interface AreaType {
+export interface AreaType {
   /** 区域唯一标识id */
   id: string
   /** 容器id */
   containerId: string
-  position: InsertPosition
+  position: InsertPositions
   left: number
   top: number
   // right: number
@@ -25,15 +25,14 @@ interface AreaType {
   height: number
 }
 
-export const nodeAreas: AreaType[] = []
+export let nodeAreas: AreaType[] = []
 
 export const generateAreas = () => {
-  const nodes = document.querySelectorAll('[data-node]')
+  // const nodes = document.querySelectorAll('[data-node]')
   // 拖放容器
-  // const dropContainer = document.querySelector('.page-content')!
-  // const nodes = dropContainer.querySelectorAll('[data-node]')
+  const dropContainer = document.querySelector('.page-content')!
+  const nodes = dropContainer.querySelectorAll('[data-node]')
 
-  console.log(nodes)
   const nodesMap = new Map<string, HTMLDivElement>()
   nodes.forEach(node => {
     const nodeId = node.getAttribute('data-node')
@@ -52,7 +51,6 @@ export const generateAreas = () => {
     const parentContainer = nodesMap.get(containerId as string)
     const parentContainerId = parentContainer?.getAttribute('data-container')
     const parentContainerDirection = parentContainer?.getAttribute('data-direction')
-    console.log(nodeId, containerId, parentContainerId, parentContainer)
     if (
       !nodeId ||
       !containerId ||
@@ -98,4 +96,8 @@ export const generateAreas = () => {
       })
     }
   }
+}
+
+export const clearAreas = () => {
+  nodeAreas = []
 }
