@@ -18,7 +18,9 @@
     "react-router-dom": "7.6.2",
     "lucide-react": "0.517.0",
     "zod": "3.25.67",
-    "zustand": "5.0.5"
+    "zustand": "5.0.5",
+    "@glideapps/glide-data-grid": "6.0.3",
+    "react-hook-form": "7.58.1"
   },
   "devDependencies": {
     "@types/react": "^18",
