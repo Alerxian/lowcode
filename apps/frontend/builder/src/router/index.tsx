@@ -1,3 +1,4 @@
+import { Profiler } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
 import { Layout } from '@/layout'
@@ -11,11 +12,29 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Editor />,
+        element: (
+          <Profiler
+            id="editor"
+            onRender={(id, phase, actualDuration) => {
+              console.log(id, phase, actualDuration)
+            }}
+          >
+            <Editor />
+          </Profiler>
+        ),
       },
       {
         path: '/data-source',
-        element: <DataSource />,
+        element: (
+          <Profiler
+            id="datasource"
+            onRender={(id, phase, actualDuration) => {
+              console.log(id, phase, actualDuration)
+            }}
+          >
+            <DataSource />
+          </Profiler>
+        ),
       },
     ],
   },

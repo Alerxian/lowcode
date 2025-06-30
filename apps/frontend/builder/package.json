@@ -10,23 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@glideapps/glide-data-grid": "6.0.3",
+    "@lowcode/layout-engine": "workspace:*",
+    "@lowcode/shadcn": "workspace:*",
+    "@lowcode/variable-editor": "workspace:*",
+    "lucide-react": "0.517.0",
     "react": "^18",
     "react-dom": "^18",
-    "@lowcode/shadcn": "workspace:*",
-    "@lowcode/layout-engine": "workspace:*",
-    "tailwindcss": "3.4.14",
+    "react-hook-form": "7.58.1",
     "react-router-dom": "7.6.2",
-    "lucide-react": "0.517.0",
+    "tailwindcss": "3.4.14",
     "zod": "3.25.67",
-    "zustand": "5.0.5",
-    "@glideapps/glide-data-grid": "6.0.3",
-    "react-hook-form": "7.58.1"
+    "zustand": "5.0.5"
   },
   "devDependencies": {
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.4.1",
-    "vite": "^6.3.5",
-    "autoprefixer": "10.4.21"
+    "autoprefixer": "10.4.21",
+    "rollup-plugin-visualizer": "^6.0.3",
+    "vite": "^6.3.5"
   }
 }

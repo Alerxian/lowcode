@@ -1,5 +1,7 @@
 Avenir
 glideapps
 interactjs
+keymap
+lezer
 lowcode
 shadcn

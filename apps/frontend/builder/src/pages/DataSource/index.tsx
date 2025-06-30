@@ -33,7 +33,7 @@ const DataSource = () => {
   ]
   const [columns, setColumns] = useState(Columns)
   const [rows, setRows] = useState(() => {
-    return Array.from({ length: 100000 }, (_, i) => {
+    return Array.from({ length: 1000 }, (_, i) => {
       return ['name' + i, Math.round(Math.random() * 1000), 'Male']
     })
   })
