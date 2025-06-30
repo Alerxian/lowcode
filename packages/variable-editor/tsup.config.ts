@@ -5,6 +5,7 @@ export default defineConfig({
   clean: true,
   format: ['esm'],
   outDir: 'dist/esm',
+  plugins: [],
   dts: true,
   sourcemap: true,
   minify: true,

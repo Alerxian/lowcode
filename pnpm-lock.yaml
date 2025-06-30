@@ -366,7 +366,19 @@ importers:
       '@lezer/highlight':
         specifier: 1.2.1
         version: 1.2.1
+      react:
+        specifier: '>=18'
+        version: 18.3.1
+      react-dom:
+        specifier: '>=18'
+        version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@types/react':
+        specifier: 18.3.23
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: 18.3.7
+        version: 18.3.7(@types/react@18.3.23)
       tsup:
         specifier: 8.5.0
         version: 8.5.0(@swc/core@1.12.0)(jiti@2.4.2)(postcss@8.5.5)(typescript@5.8.3)(yaml@2.8.0)
@@ -2509,6 +2521,9 @@ packages:
 
   '@types/react@18.3.12':
     resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
+
+  '@types/react@18.3.23':
+    resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
 
   '@types/send@0.17.5':
     resolution: {integrity: sha512-z6F2D3cOStZvuk2SaP6YrwkNO65iTZcwA2ZkSABegdkAh/lf+Aa/YQndZVfmEXT5vgAp6zv06VQ3ejSVjAny4w==}
@@ -8329,12 +8344,21 @@ snapshots:
     dependencies:
       '@types/react': 18.3.12
 
+  '@types/react-dom@18.3.7(@types/react@18.3.23)':
+    dependencies:
+      '@types/react': 18.3.23
+
   '@types/react-dom@19.1.6(@types/react@18.3.12)':
     dependencies:
       '@types/react': 18.3.12
     optional: true
 
   '@types/react@18.3.12':
+    dependencies:
+      '@types/prop-types': 15.7.15
+      csstype: 3.1.3
+
+  '@types/react@18.3.23':
     dependencies:
       '@types/prop-types': 15.7.15
       csstype: 3.1.3

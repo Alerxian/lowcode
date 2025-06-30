@@ -4,4 +4,5 @@ interactjs
 keymap
 lezer
 lowcode
+Menlo
 shadcn

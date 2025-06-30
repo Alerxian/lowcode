@@ -7,7 +7,8 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 const frontendConfig = {
-  files: ['apps/frontend/builder/**/*/.{ts,tsx,js,jsx}'],
+  files: ['apps/frontend/builder/**/*/.{ts,tsx}', 'packages/**/*.{ts,tsx}'],
+  ignores: ['packages/shadcn/src/components/ui/**/*'],
   languageOptions: {
     ecmaVersion: 2022,
     globals: {
