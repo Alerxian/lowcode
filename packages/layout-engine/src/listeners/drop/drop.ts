@@ -11,8 +11,14 @@ export const drop = (
   target.classList.remove('bg-zinc-100')
 
   const containerId = target.getAttribute('data-container')
-  console.log('containerId', containerId, target)
-  if (!containerId) return
+  // console.log('containerId', containerId, target)
+  if (!containerId) {
+    if (target.classList.contains('page-content-inner')) {
+      // 初始化
+      dropCallback(dragItem.dragId, { parentId: 'root' })
+    }
+    return
+  }
 
   dropCallback(dragItem.dragId, { parentId: containerId })
 }

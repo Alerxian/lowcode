@@ -9,4 +9,8 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   minify: true,
+  publicDir: 'src/assets',
+  loader: {
+    '.svg': 'file',
+  },
 })

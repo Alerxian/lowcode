@@ -1,30 +1,30 @@
 import { EditorView } from '@codemirror/view'
 
-// import ArrayIcon from '../../assets/icons/array.svg'
-// import BooleanIcon from '../../assets/icons/boolean.svg'
-// import FunctionIcon from '../../assets/icons/function.svg'
-// import KeywordIcon from '../../assets/icons/keyword.svg'
-// import NullIcon from '../../assets/icons/null.svg'
-// import NumberIcon from '../../assets/icons/number.svg'
-// import ObjectIcon from '../../assets/icons/object.svg'
-// import StringIcon from '../../assets/icons/string.svg'
-// import TableIcon from '../../assets/icons/table.svg'
-// import TypeIcon from '../../assets/icons/type.svg'
-// import UnknownIcon from '../../assets/icons/undefine.svg'
+import ArrayIcon from '../assets/icons/array.svg'
+import BooleanIcon from '../assets/icons/boolean.svg'
+import FunctionIcon from '../assets/icons/function.svg'
+import KeywordIcon from '../assets/icons/keyword.svg'
+import NullIcon from '../assets/icons/null.svg'
+import NumberIcon from '../assets/icons/number.svg'
+import ObjectIcon from '../assets/icons/object.svg'
+import StringIcon from '../assets/icons/string.svg'
+import TableIcon from '../assets/icons/table.svg'
+import TypeIcon from '../assets/icons/type.svg'
+import UnknownIcon from '../assets/icons/undefine.svg'
 
-const baseUrl = 'https://builder.illacloud.com/assets'
+// const baseUrl = 'https://builder.illacloud.com/assets'
 
-const ArrayIcon = `${baseUrl}/array-39339b58.svg`
-const BooleanIcon = `${baseUrl}/function-70d94a1b.svg`
-const FunctionIcon = `${baseUrl}/function-70d94a1b.svg`
-const KeywordIcon = `${baseUrl}/function-70d94a1b.svg`
-const NullIcon = `${baseUrl}/function-70d94a1b.svg`
-const NumberIcon = `${baseUrl}/number-a0d2d6bc.svg`
-const ObjectIcon = `${baseUrl}/object-9716bd48.svg`
-const StringIcon = `${baseUrl}/function-70d94a1b.svg`
-const TableIcon = `${baseUrl}/function-70d94a1b.svg`
-const TypeIcon = `${baseUrl}/function-70d94a1b.svg`
-const UnknownIcon = `${baseUrl}/undefine-27337fe9.svg`
+// const ArrayIcon = `${baseUrl}/array-39339b58.svg`
+// const BooleanIcon = `${baseUrl}/function-70d94a1b.svg`
+// const FunctionIcon = `${baseUrl}/function-70d94a1b.svg`
+// const KeywordIcon = `${baseUrl}/function-70d94a1b.svg`
+// const NullIcon = `${baseUrl}/function-70d94a1b.svg`
+// const NumberIcon = `${baseUrl}/number-a0d2d6bc.svg`
+// const ObjectIcon = `${baseUrl}/object-9716bd48.svg`
+// const StringIcon = `${baseUrl}/function-70d94a1b.svg`
+// const TableIcon = `${baseUrl}/function-70d94a1b.svg`
+// const TypeIcon = `${baseUrl}/function-70d94a1b.svg`
+// const UnknownIcon = `${baseUrl}/undefine-27337fe9.svg`
 
 export const defaultHighlightClassName = 'cm-default-highlight'
 export const errorHighlightClassName = 'cm-error-highlight'

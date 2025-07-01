@@ -8,30 +8,30 @@ import type { BlockProtocol } from '@/protocols/block'
 import { type BlockTreeNode, useBlockStore } from '@/stores/useBlockStore'
 
 const blockTree: BlockTreeNode[] = [
-  {
-    id: 'root',
-    type: 'container',
-    children: [],
-  },
+  // {
+  //   id: 'root',
+  //   type: 'container',
+  //   children: [],
+  // },
 ]
 const blocks: Record<string, BlockProtocol> = {
-  root: {
-    id: 'root',
-    title: 'page-container',
-    type: 'container',
-    props: {
-      size: {
-        width: 100,
-        height: 100,
-        widthUnit: '%',
-        heightUnit: '%',
-      },
-      style: {
-        backgroundColor: '#fff',
-      },
-      layout: {},
-    },
-  },
+  // root: {
+  //   id: 'root',
+  //   title: 'page-container',
+  //   type: 'container',
+  //   props: {
+  //     size: {
+  //       width: 100,
+  //       height: 100,
+  //       widthUnit: '%',
+  //       heightUnit: '%',
+  //     },
+  //     style: {
+  //       backgroundColor: '#fff',
+  //     },
+  //     layout: {},
+  //   },
+  // },
 }
 const EditorPage = () => {
   const initBlocks = useBlockStore(state => state.initBlocks)

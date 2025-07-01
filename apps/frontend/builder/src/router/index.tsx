@@ -12,16 +12,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: (
-          <Profiler
-            id="editor"
-            onRender={(id, phase, actualDuration) => {
-              console.log(id, phase, actualDuration)
-            }}
-          >
-            <Editor />
-          </Profiler>
-        ),
+        element: <Editor />,
       },
       {
         path: '/data-source',

@@ -3,6 +3,8 @@ import { PlusCircle, TableOfContents, Variable } from 'lucide-react'
 import { useState } from 'react'
 
 import { ComponentPanel } from './ComponentPanel'
+import { LayerPanel } from './LayerPanel'
+import { VariablesPanel } from './VariablesPanel'
 
 const menus = [
   {
@@ -43,6 +45,8 @@ const EditorLeftPanel = () => {
       </div>
       <div className="w-[278px] h-full bg-zinc-50 border-l">
         {activeMenu === 'components' && <ComponentPanel />}
+        {activeMenu === 'layer' && <LayerPanel />}
+        {activeMenu === 'state' && <VariablesPanel />}
       </div>
     </div>
   )

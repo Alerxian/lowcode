@@ -17,7 +17,6 @@ const EditorCanvas = () => {
     init({
       onInsert(dragId, payload) {
         const [dragType = '', type = ''] = dragId.split('-')
-        console.log(type, dragType, payload)
         if (dragType === 'insert') {
           insertBlock({
             type: type as BlockType,
@@ -35,6 +34,7 @@ const EditorCanvas = () => {
         })
       },
       onDrop(dragId, insertPayload) {
+        // console.log(dragId, insertPayload, 'onDrop')
         if (!insertPayload) {
           return
         }

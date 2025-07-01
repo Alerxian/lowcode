@@ -1,21 +1,17 @@
-import { VariableEditor } from '@lowcode/variable-editor'
-import { useState } from 'react'
+import { useBlockStore } from '@/stores/useBlockStore'
 
-const EditorSettingPanel = () => {
-  const [value, setValue] = useState<string | undefined>(undefined)
-  return (
-    <div className="w-[300px] overflow-x-hidden border-l h-full">
-      <VariableEditor
-        // className="h-20"
-        // className="h-[300px]"
-        value={value}
-        onBlur={value => {
-          console.log(value)
-          setValue(value)
-        }}
-      />
-    </div>
-  )
+import { BlocksSettings } from './BlocksSettings'
+import { PageSettings } from './PageSettings'
+
+export function EditorSettingPanel() {
+  const activeBlock = useBlockStore(state => state.activeBlock)
+
+  let content = null
+  if (activeBlock) {
+    content = <BlocksSettings />
+  } else {
+    content = <PageSettings />
+  }
+
+  return <div className="w-[300px] overflow-x-hidden border-l">{content}</div>
 }
-
-export { EditorSettingPanel }

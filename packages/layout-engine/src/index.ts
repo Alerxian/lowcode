@@ -41,4 +41,13 @@ export const init = ({ onInsert, onDrop }: LayoutEngineOptions) => {
       dragleave: dragLeave,
     },
   })
+
+  interact('.page-content-inner').dropzone({
+    accept: '[data-node]',
+    listeners: {
+      drop: event => drop(event, onDrop),
+      dragenter: dragEnter,
+      dragleave: dragLeave,
+    },
+  })
 }

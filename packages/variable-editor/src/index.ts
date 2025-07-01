@@ -1,1 +1,1 @@
-export { VariableEditor } from './core/VariableEditorCore'
+export { VariableEditor, intercept } from './core'

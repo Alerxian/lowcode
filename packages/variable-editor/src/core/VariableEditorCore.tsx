@@ -24,6 +24,7 @@ import { createPortal } from 'react-dom'
 import { editConfigure } from '../extensions/common/editableConfigure'
 import { placeholderConfigure } from '../extensions/common/placeholderConfigure'
 import { readonlyConfigure } from '../extensions/common/readonlyConfigure'
+import { generatorDynamicCompletion } from '../extensions/completions/dynamicCompletion'
 // import { singleLineConfigure } from '../extensions/common/singleLineConfigure'
 import { staticCompletion } from '../extensions/completions/staticCompletion'
 import { customHighlightPlugin } from '../extensions/highlight/dynamicHighlight'
@@ -32,8 +33,9 @@ import { changeUpdateListener } from '../extensions/listeners/changeUpdateListen
 import { focusUpdateListener } from '../extensions/listeners/focusUpdateListener'
 import { customTheme } from '../themes/custom'
 import { VariableEditorCoreProps } from '../types/editor'
+import { intercept } from './VariableInterceptor'
 
-const language = new Compartment()
+// const language = new Compartment()
 const tabSize = new Compartment()
 
 const basicExtensions: Extension = [
@@ -118,9 +120,7 @@ export const VariableEditor: FC<VariableEditorCoreProps> = props => {
 
   useEffect(() => {
     if (!snippet || !dataTree) return
-    // const { result, error } = intercept(snippet, dataTree)
-    const result = ''
-    const error = ''
+    const { result, error } = intercept(snippet, dataTree)
     setEvalRes(result)
     setEvalError(error)
   }, [dataTree, snippet])
@@ -140,8 +140,8 @@ export const VariableEditor: FC<VariableEditorCoreProps> = props => {
         // singleLineConfigure(false),
         customTheme,
         tabSize.of(EditorState.tabSize.of(2)),
-
-        language.of(javascript()),
+        javascript(),
+        // language.of(javascript()),
         syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
         // 自定义高亮
         customHighlightPlugin,
@@ -150,7 +150,9 @@ export const VariableEditor: FC<VariableEditorCoreProps> = props => {
         wordHover,
 
         // lineNumbers(),
-        autocompletion({ override: [staticCompletion] }),
+        autocompletion({
+          override: [staticCompletion, generatorDynamicCompletion(Object.keys(dataTree || {}))],
+        }),
         forbidRegExpLinter,
 
         focusUpdateListener({
@@ -180,6 +182,7 @@ export const VariableEditor: FC<VariableEditorCoreProps> = props => {
       })
     }
   }, [
+    dataTree,
     editable,
     focused,
     onBlur,
